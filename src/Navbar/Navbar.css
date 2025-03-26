@@ -1,0 +1,25 @@
+.navul li hr{
+    border: 2px solid rgb(255, 89, 0);
+    border-radius: 2px;
+}
+.list{
+    cursor: pointer;
+}
+.cart-count{
+      width: 20px;
+      height: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: red;
+      color: white;
+      margin-top: -35px;
+      margin-left: -25px;
+      border-radius: 11px;
+}
+.login:hover{
+background-color: rgba(0, 0, 0, 0.897);
+transform: scale(1.05);
+transition: 0.6s;
+
+}

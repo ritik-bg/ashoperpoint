@@ -1,0 +1,21 @@
+.inputs input {
+    border: 1px solid #ccc; /* Define the border thickness, style, and color */
+    border-radius: 3px;     /* Define the border radius */
+    padding: 8px;      
+    width: 26vw ;  
+                           /* Optional: Add padding for better spacing */
+}
+
+.signup-btn{
+    margin-top: 8px;
+    width: 26vw ; 
+   background-color: #ff4141;
+   height: 40px;
+   border-radius: 3px;
+   color: white;
+   
+}
+.signup-btn:hover{
+    transform: scale(1.03);
+    transition-duration: 800ms;
+}
