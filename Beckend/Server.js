@@ -12,9 +12,10 @@ dotenv.config();
 
 const app = express();
 const port = 3000;
+app.use(Cors());
 app.use(express.json());
 app.use(urlencoded({ extended: true }));
-app.use(Cors());
+
 app.use(
     Cors({
         credentials: true, // ✅ Allow cookies to be sent & received

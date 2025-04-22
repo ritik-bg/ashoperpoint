@@ -1,7 +1,7 @@
 import React from 'react'
 import women from '../../assets/women.png';
 import arrow from '../../assets/arrow.png'
-import './hero.css'
+
 
 
 const Hero = () => {
