@@ -23,9 +23,7 @@ const LoginSignup = () => {
   };
 
   const onSubmit = async(data) => {
-     
-    
-    
+
     const res = await fetch('http://localhost:3000/register' , {
       method: 'POST',
       headers:{
@@ -35,7 +33,7 @@ const LoginSignup = () => {
       body : JSON.stringify(data)
      })
      
-    const responseData = await response.json();
+    const responseData = await res.json();
     console.log("Response Data:", responseData);
 
     // ✅ Reset form only after successful submission
@@ -44,6 +42,9 @@ const LoginSignup = () => {
       email: "",
       password: "",
     });
+
+
+  
 
   };
   return (

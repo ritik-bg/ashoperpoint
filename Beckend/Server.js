@@ -20,7 +20,7 @@ app.use(urlencoded({ extended: true }));
 app.use(
     Cors({
         credentials: true, // ✅ Allow cookies to be sent & received
-        origin: "http://localhost:5173/signin", // ✅ Replace with your frontend URL
+        origin: "http://localhost:5173", // ✅ Replace with your frontend URL
     })
 );
 app.use(cookieParser());
@@ -65,22 +65,21 @@ app.get('/', async (req, res) => {
 //POST request
 
 app.post('/register', (req, res) => {
-    const data = req.body;
+  const data = req.body;
 
-    //coming data
+  // Log the incoming data to see what it looks like
+  console.log(data);
 
-
-    console.log(data);
-    Collection.insertOne(data)
-        .then(() => {
-            res.send('Data inserted successfully');
-        })
-        .catch((error) => {
-            console.error('Error inserting data: ', error);
-            res.send('An error occurred');
-        });
+  // Assuming `Collection` is a MongoDB collection
+  Collection.insertOne(data)
+    .then(() => {
+      res.status(200).json({ message: 'Data inserted successfully' });
+    })
+    .catch((error) => {
+      console.error('Error inserting data:', error);
+      res.status(500).json({ error: 'An error occurred during data insertion' });
+    });
 });
-
 
 
 
