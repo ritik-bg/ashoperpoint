@@ -2,8 +2,9 @@ import express from 'express';
 import { MongoClient } from 'mongodb';
 import { urlencoded } from 'express';
 import Cors from 'cors';
-import jwt from 'jsonwebtoken'
-import dotenv from "dotenv";
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+
 import cookieParser from "cookie-parser";
 import verifytoken from './Authmiddleware.js'
 
@@ -28,10 +29,10 @@ app.use(cookieParser());
 
 
 
-const url = 'mongodb://localhost:27017';
+
 const dbName = 'ShopperPoint';
 
-const client = new MongoClient(url);
+const client = new MongoClient(process.env.MONGO_URI);
 client.connect()
     .then(() => {
         console.log('Connected successfully to the database');
