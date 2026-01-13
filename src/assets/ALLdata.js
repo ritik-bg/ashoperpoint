@@ -6,8 +6,7 @@ import lether_belt from './belt.jpg'
 const All_product = [
 
     {
-        id: 1,
-        name: "Classic White Shirt",
+                name: "Classic White Shirt",
         image: "https://example.com/images/white-shirt.jpg",
         old_price: 999,
         new_price: 799,
@@ -15,8 +14,7 @@ const All_product = [
         description: "A timeless white shirt, perfect for formal and casual wear."
       },
       {
-        id: 2,
-        name: "Denim Jacket",
+                name: "Denim Jacket",
         image: "https://example.com/images/denim-jacket.jpg",
         old_price: 2499,
         new_price: 1999,
@@ -24,8 +22,7 @@ const All_product = [
         description: "Stylish blue denim jacket with a classic fit."
       },
       {
-        id: 3,
-        name: "Black Skinny Jeans",
+                name: "Black Skinny Jeans",
         image: "https://example.com/images/black-jeans.jpg",
         old_price: 1999,
         new_price: 1499,
@@ -33,8 +30,7 @@ const All_product = [
         description: "Comfortable and trendy black skinny jeans."
       },
       {
-        id: 4,
-        name: "Floral Summer Dress",
+                name: "Floral Summer Dress",
         image: "https://example.com/images/floral-dress.jpg",
         old_price: 1599,
         new_price: 1299,
@@ -42,8 +38,7 @@ const All_product = [
         description: "Light and breezy floral dress for summer outings."
       },
       {
-        id: 5,
-        name: "Cotton Kurta",
+                name: "Cotton Kurta",
         image: "https://example.com/images/cotton-kurta.jpg",
         old_price: 1299,
         new_price: 999,
@@ -51,8 +46,7 @@ const All_product = [
         description: "Elegant cotton kurta for traditional occasions."
       },
       {
-        id: 6,
-        name: "Casual Hoodie",
+                name: "Casual Hoodie",
         image: "https://example.com/images/casual-hoodie.jpg",
         old_price: 1499,
         new_price: 1299,
@@ -60,8 +54,7 @@ const All_product = [
         description: "Warm and cozy hoodie for everyday use."
       },
       {
-        id: 7,
-        name: "Running Shoes",
+                name: "Running Shoes",
         image: running_shoe,
         old_price: 2999,
         new_price: 2499,
@@ -69,8 +62,7 @@ const All_product = [
         description: "Durable running shoes designed for comfort and performance."
       },
       {
-        id: 8,
-        name: "Leather Belt",
+                name: "Leather Belt",
         image: lether_belt ,
         old_price: 699,
         new_price: 499,
@@ -78,8 +70,7 @@ const All_product = [
         description: "High-quality leather belt for a polished look."
       },
       {
-        id: 9,
-        name: "Graphic T-Shirt",
+                name: "Graphic T-Shirt",
         image: "https://example.com/images/graphic-tee.jpg",
         old_price: 899,
         new_price: 599,
@@ -87,7 +78,7 @@ const All_product = [
         description: "Trendy graphic t-shirt with unique prints."
       },
       {
-        id: 10,
+        
         name: "Woolen Scarf",
         image: "https://example.com/images/woolen-scarf.jpg",
         old_price: 799,
@@ -96,7 +87,7 @@ const All_product = [
         description: "Soft woolen scarf to keep you warm and stylish."
       },
       {
-        id: 11,
+        
         name: "Formal Trousers",
         image: "https://example.com/images/formal-trousers.jpg",
         old_price: 1299,
@@ -105,7 +96,7 @@ const All_product = [
         description: "Tailored formal trousers for office wear."
       },
       {
-        id: 12,
+        
         name: "Sports Shorts",
         image: "https://example.com/images/sports-shorts.jpg",
         old_price: 799,
@@ -114,7 +105,7 @@ const All_product = [
         description: "Comfortable shorts for sports and workouts."
       },
       {
-        id: 13,
+        
         name: "Winter Coat",
         image: "https://example.com/images/winter-coat.jpg",
         old_price: 3499,
@@ -123,7 +114,7 @@ const All_product = [
         description: "Heavy-duty winter coat for extreme cold."
       },
       {
-        id: 14,
+        
         name: "Polka Dot Skirt",
         image: "https://example.com/images/polka-dot-skirt.jpg",
         old_price: 1199,
@@ -132,7 +123,7 @@ const All_product = [
         description: "Playful polka dot skirt for casual outings."
       },
       {
-        id: 15,
+        
         name: "Silk Saree",
         image: "https://example.com/images/silk-saree.jpg",
         old_price: 2999,
@@ -141,7 +132,7 @@ const All_product = [
         description: "Luxurious silk saree for weddings and parties."
       },
       {
-        id: 16,
+        
         name: "Canvas Backpack",
         image: "https://example.com/images/canvas-backpack.jpg",
         old_price: 1999,
@@ -150,7 +141,7 @@ const All_product = [
         description: "Stylish canvas backpack for everyday use."
       },
       {
-        id: 17,
+        
         name: "Linen Blazer",
         image: "https://example.com/images/linen-blazer.jpg",
         old_price: 2499,
@@ -159,7 +150,7 @@ const All_product = [
         description: "Lightweight linen blazer for semi-formal events."
       },
       {
-        id: 18,
+        
         name: "Ankle Boots",
         image: "https://example.com/images/ankle-boots.jpg",
         old_price: 3499,
@@ -168,7 +159,7 @@ const All_product = [
         description: "Fashionable ankle boots for a chic look."
       },
       {
-        id: 19,
+        
         name: "Sports Cap",
         image: "https://example.com/images/sports-cap.jpg",
         old_price: 599,
@@ -177,7 +168,7 @@ const All_product = [
         description: "Adjustable sports cap for sun protection."
       },
       {
-        id: 20,
+        
         name: "Round Neck Sweatshirt",
         image: "https://example.com/images/sweatshirt.jpg",
         old_price: 1299,
@@ -186,7 +177,7 @@ const All_product = [
         description: "Comfortable and stylish round neck sweatshirt."
       },
       {
-        id: 21,
+        
         name: "Slim Fit Chinos",
         image: "https://example.com/images/slim-fit-chinos.jpg",
         old_price: 1599,
@@ -195,7 +186,7 @@ const All_product = [
         description: "Comfortable slim-fit chinos for casual and formal wear."
       },
       {
-        id: 22,
+        
         name: "Party Wear Gown",
         image: "https://example.com/images/party-gown.jpg",
         old_price: 4999,
@@ -204,7 +195,7 @@ const All_product = [
         description: "Elegant party gown with intricate detailing."
       },
       {
-        id: 23,
+        
         name: "Graphic Hoodie",
         image: "https://example.com/images/graphic-hoodie.jpg",
         old_price: 1899,
@@ -213,7 +204,7 @@ const All_product = [
         description: "Trendy graphic hoodie for a cool winter look."
       },
       {
-        id: 24,
+        
         name: "Leather Jacket",
         image: "https://example.com/images/leather-jacket.jpg",
         old_price: 4499,
@@ -222,7 +213,7 @@ const All_product = [
         description: "Premium leather jacket with a modern design."
       },
       {
-        id: 25,
+        
         name: "Printed Kurti",
         image: "https://example.com/images/printed-kurti.jpg",
         old_price: 1499,
@@ -231,7 +222,7 @@ const All_product = [
         description: "Beautifully printed kurti for daily and festive occasions."
       },
       {
-        id: 26,
+        
         name: "Cotton Trousers",
         image: "https://example.com/images/cotton-trousers.jpg",
         old_price: 1399,
@@ -240,7 +231,7 @@ const All_product = [
         description: "Light and breathable cotton trousers for summer."
       },
       {
-        id: 27,
+        
         name: "Casual Sneakers",
         image: "https://example.com/images/casual-sneakers.jpg",
         old_price: 1999,
@@ -249,7 +240,7 @@ const All_product = [
         description: "Stylish and comfortable casual sneakers."
       },
       {
-        id: 28,
+        
         name: "Oversized Sweatshirt",
         image: "https://example.com/images/oversized-sweatshirt.jpg",
         old_price: 1899,
@@ -258,7 +249,7 @@ const All_product = [
         description: "Trendy oversized sweatshirt for a cozy look."
       },
       {
-        id: 29,
+        
         name: "Cargo Pants",
         image: "https://example.com/images/cargo-pants.jpg",
         old_price: 2199,
@@ -267,7 +258,7 @@ const All_product = [
         description: "Versatile cargo pants with multiple pockets."
       },
       {
-        id: 30,
+        
         name: "Polka Dot Frock",
         image: "https://example.com/images/polka-dot-frock.jpg",
         old_price: 999,
@@ -276,7 +267,7 @@ const All_product = [
         description: "Adorable polka dot frock for parties and outings."
       },
       {
-        id: 31,
+        
         name: "Knitted Cardigan",
         image: "https://example.com/images/knitted-cardigan.jpg",
         old_price: 2299,
@@ -285,7 +276,7 @@ const All_product = [
         description: "Warm knitted cardigan for chilly evenings."
       },
       {
-        id: 32,
+        
         name: "Formal Shirt",
         image: "https://example.com/images/formal-shirt.jpg",
         old_price: 1499,
@@ -294,7 +285,7 @@ const All_product = [
         description: "Classic formal shirt for office wear."
       },
       {
-        id: 33,
+        
         name: "Denim Shorts",
         image: "https://example.com/images/denim-shorts.jpg",
         old_price: 1199,
@@ -303,7 +294,7 @@ const All_product = [
         description: "Comfortable and trendy denim shorts for casual wear."
       },
       {
-        id: 34,
+        
         name: "Wrap Dress",
         image: "https://example.com/images/wrap-dress.jpg",
         old_price: 2599,
@@ -312,7 +303,7 @@ const All_product = [
         description: "Stylish wrap dress for casual and semi-formal occasions."
       },
       {
-        id: 35,
+        
         name: "Track Pants",
         image: "https://example.com/images/track-pants.jpg",
         old_price: 1299,
@@ -321,7 +312,7 @@ const All_product = [
         description: "Comfortable track pants for gym and casual outings."
       },
       {
-        id: 36,
+        
         name: "Embroidered Lehenga",
         image: "https://example.com/images/embroidered-lehenga.jpg",
         old_price: 5999,
@@ -330,7 +321,7 @@ const All_product = [
         description: "Elegant embroidered lehenga for weddings and festivities."
       },
       {
-        id: 37,
+        
         name: "Rain Jacket",
         image: "https://example.com/images/rain-jacket.jpg",
         old_price: 1499,
@@ -339,7 +330,7 @@ const All_product = [
         description: "Waterproof rain jacket for all-weather protection."
       },
       {
-        id: 38,
+        
         name: "V-Neck T-Shirt",
         image: "https://example.com/images/v-neck-tshirt.jpg",
         old_price: 799,
@@ -348,7 +339,7 @@ const All_product = [
         description: "Classic V-neck t-shirt for everyday use."
       },
       {
-        id: 39,
+        
         name: "Woolen Beanie",
         image: "https://example.com/images/woolen-beanie.jpg",
         old_price: 499,
@@ -357,7 +348,7 @@ const All_product = [
         description: "Cozy woolen beanie for winter."
       },
       {
-        id: 40,
+        
         name: "Blouse and Skirt Set",
         image: "https://example.com/images/blouse-skirt-set.jpg",
         old_price: 2999,

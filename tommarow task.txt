@@ -1,0 +1,1 @@
+firta we will tak user detail and address to deliver order and stuff details then we will store this data in db and then we will refetch this dat from db accordingly to placed order for particular users

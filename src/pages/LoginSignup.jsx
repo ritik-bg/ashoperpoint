@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import './Login.css'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 const LoginSignup = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -12,19 +12,14 @@ const LoginSignup = () => {
     email: '',
     password: ''
   }])
+  
 
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm((prevForm) => ({
-      ...prevForm,
-      [name]: value
-    }));
-  };
+
 
   const onSubmit = async(data) => {
 
-    const res = await fetch('http://localhost:3000/register' , {
+    const res = await fetch(`http://localhost:3000/register` , {
       method: 'POST',
       headers:{
         'content-type':'application/json'
@@ -55,14 +50,14 @@ const LoginSignup = () => {
           <div className="inputs mx-auto flex flex-col gap-2">
 
             <div>
-              <input type="text" placeholder='Your Name' value={form.name} onChange={handleChange}  {...register('name', { required: 'Name is required'  })} />
+              <input type="text" placeholder='Your Name'    {...register('name', { required: 'Name is required'  })} />
               {errors.name && <p className='text-red-600 text-sm '>   {errors.name.message}</p>}
 
             </div>
             <div>
 
               <input
-                type="email" placeholder='Your Email' value={form.email} onChange={handleChange}
+                type="email" placeholder='Your Email' onChange={handleChange}
                 {...register('email', { required: 'Email is required' })}
               />
               {errors.email && <p className='text-red-600 text-sm '>{errors.email.message}</p>}
@@ -70,7 +65,7 @@ const LoginSignup = () => {
             <div>
 
               <input
-                type="password" placeholder='Password' value={form.password} onChange={handleChange}
+                type="password" placeholder='Password' onChange={handleChange}
                 {...register('password', {
                   required: 'Password is required',
                   minLength: { value: 6, message: 'Password must be at least 6 characters' }
@@ -95,8 +90,6 @@ const LoginSignup = () => {
 
 
         </form>
-
-
 
       </div>
 

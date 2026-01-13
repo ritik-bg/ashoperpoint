@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Outlet, Navigate } from "react-router-dom";
 
 const Protected = ({ children }) => {
-    const [isAuthenticated, setIsAuthenticated] = useState(null);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -10,9 +11,9 @@ const Protected = ({ children }) => {
             try {
                 const res = await fetch('http://localhost:5173/cart', {
                     method: 'GET',
-                headers: { 'Content-Type': 'application/json' } ,
+                    headers: { 'Content-Type': 'application/json' },
                     credentials: 'include'  // To include cookies
-                   
+
                 });
 
                 if (res.status === 401) {
