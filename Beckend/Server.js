@@ -4,150 +4,98 @@ import { urlencoded } from 'express';
 import Cors from 'cors';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
-
 import cookieParser from "cookie-parser";
 import verifytoken from './Authmiddleware.js'
+import { connectDB } from './db/connection.js';
+import authMiddleware from './Authmiddleware.js';
+import Productrouter from './Routes/ProductsRoute.js';
 
 dotenv.config();
-
-
 const app = express();
 const port = 3000;
-app.use(Cors());
+app.use(Cors({
+    origin: "http://localhost:5174",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+}));
 app.use(express.json());
-app.use(urlencoded({ extended: true }));
-
-app.use(
-    Cors({
-        credentials: true, // ✅ Allow cookies to be sent & received
-        origin: "http://localhost:5173", // ✅ Replace with your frontend URL
-    })
-);
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 
-
-
-
-
 const dbName = 'ShopperPoint';
-
 const client = new MongoClient(process.env.MONGO_URI);
-client.connect()
-    .then(() => {
-        console.log('Connected successfully to the database');
+client.connect().then(() => { console.log('Connected successfully to the database') });
+const db = await connectDB(dbName);
+const UserCollection = db.collection('users');
 
-
-    });
-
-
-
-const db = client.db(dbName);
-const Collection = db.collection('users');
-
-
-
-
-//GET request
+app.use("/log/cart", Productrouter);
+app.use("/log/products", authMiddleware, Productrouter);
 
 app.get('/', async (req, res) => {
+    res.send("Server is resdy to Go!");
+});
+
+app.get('/userlist', async (req, res) => {
 
     const data = await Collection.find({}).toArray();
-    console.log(data);
+    // console.log(data);
     res.send(data);
 });
 
+app.post('/register', async (req, res) => {
+    const data = req.body;
+    const user = await UserCollection.findOne(data);
 
+    if (user) {
+        return res.status(404).json({ message: "User Alrady Exists" });
+    }
 
-
-
-
-//POST request
-
-app.post('/register', (req, res) => {
-  const data = req.body;
-
-  // Log the incoming data to see what it looks like
-  console.log(data);
-
-  // Assuming `Collection` is a MongoDB collection
-  Collection.insertOne(data)
-    .then(() => {
-      res.status(200).json({ message: 'Data inserted successfully' });
-    })
-    .catch((error) => {
-      console.error('Error inserting data:', error);
-      res.status(500).json({ error: 'An error occurred during data insertion' });
-    });
+    UserCollection.insertOne(data)
+        .then(() => {
+            res.status(200).json({ message: 'Data inserted successfully' });
+        })
+        .catch((error) => {
+            console.error('Error inserting data:', error);
+            res.status(500).json({ error: 'An error occurred during data insertion' });
+        });
 });
-
-
 
 app.post('/signin', async (req, res) => {
 
     const data = req.body;
-
-    const old = await Collection.find({}).toArray();
-    console.log(data);
+    const old = await UserCollection.find()?.toArray();
     const user = old.find(user => user.username === data.name && user.password === data.password);
 
     if (user) {
         const code = process.env.SECRET_KEY;
-
-        const token = jwt.sign({
-            data,
-        }, code, {
-            expiresIn: '3d'
-        })
-
-        // jwt.verify(token, code, (err, decoded) => {
-        //     if(err){
-        //         console.log(err)
-        //     }
-        //     console.log(decoded)
-        // })
-
-        // const decoded = jwt.decode(token);
-        console.log(token)
-        // console.log(decoded)
-
+        const token = jwt.sign({ data, }, code, { expiresIn: '3d' })
         res.cookie("token", token, {
-            httpOnly: true,  // Prevents JS access
-            secure: true,    // Use HTTPS in production
+            httpOnly: true,
+            secure: true,
             sameSite: "lax",
-            maxAge: 60 * 60 * 1000, // 1 hour
+            maxAge: 3 * 24 * 60 * 60 * 1000,
         });
 
+        res.cookie("username", user.name, {
+            httpOnly: false,
+            secure: true,
+            sameSite: "lax",
+            maxAge: 3 * 24 * 60 * 60 * 1000,
+        });
 
-
-
-        res.send('User exists');
+        res.status(200).json({
+            success: true,
+            message: "Login successful",
+            data: {
+                username: user.name,
+                token,
+            },
+        });
     } else {
-        res.send('User does not exist');
-    }
-
-
-
-
-});
-
-
-
-//EXAMPLE TAKING AN PROTECTED ROUTE
-app.get("/protected", (req, res) => {
-    console.log(req.cookies)
-    const token = req.cookies.token;
-    if (!token) return res.status(401).send("Access denied");
-
-    try {
-        const decoded = jwt.verify(token, SECRET_KEY);
-        res.json({ message: "Authenticated", user: decoded });
-    } catch (err) {
-        res.status(403).send("Invalid token");
+        res.send('Invalid credentials or User');
     }
 });
-
-//POST REQUEST TO LOGOUT
 
 app.post("/logout", (req, res) => {
     res.clearCookie("token", {
@@ -157,15 +105,6 @@ app.post("/logout", (req, res) => {
     });
     res.send({ message: "Logged out successfully!" });
 });
-
-
-app.get('/cart', verifytoken, (req, res) => {
-    res.json({ message: `Axcess Granted To the Cart`, user: req.user })
-})
-
-
-
-
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);

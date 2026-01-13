@@ -7,23 +7,10 @@ import Productdisplay from '../components/Productdisplay/Productdisplay';
 
 const Product = () => {
 
-
-
-
-
-
-
-
   const { all_products } = useContext(Shopcontext);
-  const { productId } = useParams();  // Get productId from URL params
-  
-
-  
+  const { productId } = useParams(); 
   const product = all_products?.find((e) => e.id === Number(productId));
-  
-  console.log('Found Product:', product);  // Debug log
 
-  // Add error handling
   if (!product) {
     return <div>Product not found</div>;
   }
