@@ -3,7 +3,6 @@ import women from '../../assets/women.png';
 import arrow from '../../assets/arrow.png'
 
 
-
 const Hero = () => {
   return (
     <div className='hero flex justify-between pl-6 pr-0 bg-yellow-300 h-[70vh] w-full items-center text-xl font-semibold'>
