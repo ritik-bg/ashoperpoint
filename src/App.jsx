@@ -26,9 +26,9 @@ function App() {
   const allProducts = useSelector((state) => state?.allProductlist?.allProducts);
   const contextvalue = { all_products: allProducts };
 
-  useEffect(() => {
-    dispatch(getAllProducts());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getAllProducts());
+  // }, []);
 
   return (
     <>
