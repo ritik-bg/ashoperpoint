@@ -35,14 +35,14 @@ const SignIn = () => {
             username, password
           }
           handlelogin(data)
-        }} className='flex flex-col gap-10 mt-5'>
+        }} className='flex flex-col gap-10 mt-5 md:w-auto  w-[80%]'>
           <div className="form-group ">
-            <input className='bg-gray-300 w-[20vw] rounded-sm h-[5vh] pl-4' type="text" id="username" name="username" placeholder='Username:' required />
+            <input className='bg-gray-300 md:w-[20vw] w-[100%] rounded-sm h-[5vh] pl-4' type="text" id="username" name="username" placeholder='Username:' required />
           </div>
           <div className="form-group">
-            <input className='bg-gray-300 w-[20vw] rounded-sm h-[5vh] pl-4' type="password" id="password" name="password" placeholder='Password' required />
+            <input className='bg-gray-300 md:w-[20vw] w-[100%]  rounded-sm h-[5vh] pl-4' type="password" id="password" name="password" placeholder='Password' required />
           </div>
-          <button className='bg-green-400 rounded-full h-[5vh]' type="submit" >Submit</button>
+          <button className='bg-green-400 rounded-full h-[5vh] ' type="submit" >Submit</button>
         </form>  </div>
     </div>
   )

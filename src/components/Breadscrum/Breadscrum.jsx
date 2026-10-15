@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import arrow_icon from '../../assets/arrow.png';
 
 const Breadscrum = ({ product }) => {
-  // Add error handling for when product is undefined
   if (!product) {
     return <div className="breadscrum">Loading...</div>;
   }

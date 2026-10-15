@@ -3,7 +3,7 @@ import { authApi, publicApi } from '../../intercepter'
 import { productsError, productsSuccess } from './AllproductSlice'
 
 
-export const getAllProducts = () => async (dispatch: any) => {
+export const getAllProducts = () => async (dispatch) => {
   try {
     const response = await authApi.get(`/log/products/list`);
     if (response?.data?.status) {
@@ -13,7 +13,7 @@ export const getAllProducts = () => async (dispatch: any) => {
       toast.error("Error while getting the data : " + (response.data?.msg || ""));
       return null;
     }
-  } catch (e: any) {
+  } catch (e) {
     dispatch(productsError(e));
     toast.error("Network or server error while logging in!");
     return null;

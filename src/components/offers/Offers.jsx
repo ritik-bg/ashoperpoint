@@ -2,22 +2,22 @@ import React from 'react'
 import exclusive from '../../assets/exclusive.png'
 
 const Offers = () => {
-  return (
-    <div className="mt-5 bg-gradient-to-r from-gray-500 to-gray-50 h-[70vh] flex justify-between px-16">
-     <div className="left h-full">
-        <h1 className='text-4xl font-bold text-orange-950 mt-28 leading-tight'>
-  EXCLUSIVE <br/> OFFERS FOR YOU
-</h1>
+   return (
+      <div className="mt-5 bg-gradient-to-r from-gray-500 to-gray-50 md:h-[70vh] h-[20vh] flex justify-between md:px-16 px-8">
+         <div className="left h-full">
+            <h1 className='md:text-4xl text-base font-bold text-orange-950 md:mt-28 mt-8 leading-tight'>
+               EXCLUSIVE <br /> OFFERS FOR YOU
+            </h1>
 
-        <h5 className='text-lg font-semibold font-sans '>ONLY ON BEST SELLERS PRODUCTS</h5>
-        <button className='text-lg font-semibold bg-orange-900 w-40 rounded-xl mt-5 hover:scale-110 duration-500  ' >Check Now</button>
-     </div>
-     <div className="right h--full">
-        <img  src={exclusive} width={270} height={400} />
-     </div>
-  </div>
-  
-  )
+            <h5 className='md:text-lg text-sm font-semibold font-sans '>ONLY ON BEST SELLERS PRODUCTS</h5>
+            <button className='md:text-lg text-sm font-semibold bg-orange-900 w-40 rounded-xl mt-5 hover:scale-110 duration-500  ' >Check Now</button>
+         </div>
+         <div className="right h--full">
+            <img src={exclusive} className='md:w-[270px] w-[140px] h-[180px]  md:h-[400px]' />
+         </div>
+      </div>
+
+   )
 }
 
 export default Offers

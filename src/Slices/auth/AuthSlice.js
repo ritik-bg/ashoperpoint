@@ -2,7 +2,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { loginUser } from './AuthThunk'
 
-const initialState: any = {
+const initialState = {
   user: null,
   token: null,
   isLoading: false,

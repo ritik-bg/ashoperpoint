@@ -7,7 +7,7 @@ const Popular = () => {
     <div className="popular text-center ">
         <h1 className='font-semibold text-4xl my-5 font-light'>Popular In Women</h1><hr/>
    
-    <div className="popular-item flex px-6 gap-4">
+    <div className="popular-item flex px-6 gap-4 w-[100vw] md:w-auto overflow-x-auto">
         {data.map((item,i)=>{
             return <Items key={i} id={item.id} name = {item.name} image = {item.image} old_price = {item.old_price} new_price = {item.new_price} />
         })}

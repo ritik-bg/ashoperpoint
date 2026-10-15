@@ -5,12 +5,8 @@ import { Baseurl } from '../../api.config'
 import { toast } from 'react-toastify'
 import { publicApi } from '../../intercepter'
 
-interface userdata {
-  username: string,
-  password: string
-}
 
-export const loginUser = (userdata: userdata) => async (dispatch: any) => {
+export const loginUser = (userdata) => async (dispatch) => {
   try {
     const response = await publicApi.post(`/signin`, userdata);
   
@@ -21,7 +17,7 @@ export const loginUser = (userdata: userdata) => async (dispatch: any) => {
       toast.error("Error while logging in: " + (response.data?.msg || ""));
       return null;
     }
-  } catch (e: any) {
+  } catch (e) {
     dispatch(loginError(e));
     toast.error("Network or server error while logging in!");
     return null;

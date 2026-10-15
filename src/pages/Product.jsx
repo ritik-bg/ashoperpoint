@@ -4,11 +4,9 @@ import Breadscrum from '../components/Breadscrum/Breadscrum';
 import Shopcontext from '../Context/Shopcontext';
 import Productdisplay from '../components/Productdisplay/Productdisplay';
 
-
 const Product = () => {
-
   const { all_products } = useContext(Shopcontext);
-  const { productId } = useParams(); 
+  const { productId } = useParams();
   const product = all_products?.find((e) => e.id === Number(productId));
 
   if (!product) {
