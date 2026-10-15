@@ -14,14 +14,14 @@ const Footer = () => {
  
         <img className='logo mx-auto' src={logo} height={100} width={100}/>
    
-   <ul className="links flex justify-center gap-x-12 font-medium pt-4">
+   <ul className="links flex justify-center md:gap-x-12 gap-x-3 font-medium md:pt-4">
     <li>Company</li>
     <li>Product</li>
     <li>Office</li>
     <li>About</li>
     <li>Consumer</li>
    </ul>
-   <ul className="social flex gap-20 justify-center pt-5">
+   <ul className="social flex md:gap-20 gap-2 justify-center pt-5">
     <li> <Link to="https://www.instagram.com/theriti_k/" > <img src ={instagram} height={50} width={50} alt='Insta-handle-img'/></Link></li>
     <li><Link to="https://www.facebook.com/profile.php?id=100015671325377"><img src ={facebook} height={50} width={60} alt='Fb-handle-img'/></Link></li>
     <li><Link to="https://wa.me/7037003577"> <img src ={whatsap} height={50} width={50} alt='Whatsap-handle-img'/></Link></li>

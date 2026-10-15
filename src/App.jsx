@@ -18,47 +18,53 @@ import cartcontext from './Context/Cartcontext.jsx';
 import { useEffect, useState } from 'react';
 import Checkout from './pages/Checkout/index.jsx';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllProducts } from './Slices/allproduct/Allproductthunk.ts';
+import { getAllProducts } from './Slices/allproduct/Allproductthunk.js';
 
 function App() {
   const [Purchase, setPurchase] = useState({});
   const dispatch = useDispatch();
-  const allProducts = useSelector((state) => state?.allProductlist?.data);
-  console.log(allProducts,"allproducts");
-  
-  const contextvalue = { all_products: allProducts }
-
-
+  const allProducts = useSelector((state) => state?.allProductlist?.allProducts);
+  const contextvalue = { all_products: allProducts };
 
   useEffect(() => {
     dispatch(getAllProducts());
-  }, [])
+  }, []);
 
   return (
     <>
-
       <Router>
-
-        <cartcontext.Provider value={{ Purchase, setPurchase }} >
+        <cartcontext.Provider value={{ Purchase, setPurchase }}>
           <Shopcontext.Provider value={contextvalue}>
             <Navbar />
             <Routes>
-              <Route path='/' element={<Shop />} />
-              <Route path='/signin' element={<SignIn />} />
-              <Route path='/Mens' element={<Shopcategory banner={mens_banner} category="Mens" />} />
-              <Route path='/Womens' element={<Shopcategory banner={womens_banner} category="Womens" />} />
-              <Route path='/Kids' element={<Shopcategory banner={kids_banner} category="Kids" />} />
-              <Route path="/product" element={<Product />} ></Route>
+              <Route path="/" element={<Shop />} />
+              <Route path="/signin" element={<SignIn />} />
+              <Route path="/Mens" element={<Shopcategory banner={mens_banner} category="Mens" />} />
+              <Route
+                path="/Womens"
+                element={<Shopcategory banner={womens_banner} category="Womens" />}
+              />
+              <Route path="/Kids" element={<Shopcategory banner={kids_banner} category="Kids" />} />
+              <Route path="/product" element={<Product />}></Route>
               <Route path="/product/:productId" element={<Product />} />
               <Route path="/cart/check-out" element={<Checkout />} />
-              <Route path='/login' element={<Login />} />
-              <Route path='/cart' element={<Protected> <Cart /> </Protected>} />
+              <Route path="/login" element={<Login />} />
+              <Route
+                path="/cart"
+                element={
+                  <Protected>
+                    {' '}
+                    <Cart />{' '}
+                  </Protected>
+                }
+              />
             </Routes>
             <Footer />
           </Shopcontext.Provider>
         </cartcontext.Provider>
-      </Router>  </>
-  )
+      </Router>{' '}
+    </>
+  );
 }
 
-export default App
+export default App;

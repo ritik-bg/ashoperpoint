@@ -8,6 +8,8 @@ const ShopCategory = ({ category, banner }) => {  // Destructure props here
   const categoryProducts = all_products ? 
     all_products.filter((item) => item.category === category) : 
     [];
+console.log(all_products,'categoryProducts');
+
 
   return (
     <div className="shop-category">
