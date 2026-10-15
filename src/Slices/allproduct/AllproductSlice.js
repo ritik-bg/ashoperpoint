@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
- products:[],
+ allProducts:[],
+  newCollection:[],
  error:null
 }
 
@@ -10,16 +11,23 @@ const allProductsSlice = createSlice({
   initialState,
   reducers: {
    
-    productsSuccess: (state, action) => {
-      state.data = action.payload;
+    allproductsSuccess: (state, action) => {
+      state.allProducts = action.payload;
       state.error = null;
     },
-    productsError: (state,error) => {
+    allproductsError: (state,error) => {
+      state.error = error;
+    },
+     newCollectionSuccess: (state, action) => {
+      state.newCollection = action.payload;
+      state.error = null;
+    },
+    newCollectionError: (state,error) => {
       state.error = error;
     }
   },
 
 })
 
-export const {  productsSuccess, productsError } = allProductsSlice.actions
+export const {  allproductsSuccess, allproductsError,newCollectionSuccess,newCollectionError } = allProductsSlice.actions
 export default allProductsSlice.reducer

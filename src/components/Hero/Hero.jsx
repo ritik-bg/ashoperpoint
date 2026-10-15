@@ -8,7 +8,7 @@ const Hero = () => {
     <div className='hero flex justify-between pl-6 pr-0 bg-yellow-300 md:h-[70vh] h-[15vh] w-full items-center text-xl font-semibold'>
       <div className="left md:p-14 p-1 h-full">
         <h1 className='text-lg'>NEW ARRIVAL ONLY</h1>
-        <h1 className="md:text-5xl text-base font-semibold mt-2">
+        <h1 className="md:text-5xl text-base md:font-semibold font-normal mt-2">
           New 👋<br /> Collection<br /><span className=" text-center">For</span> Everyone
         </h1>
 

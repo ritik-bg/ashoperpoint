@@ -5,7 +5,7 @@ import Items from '../../components/items/Items'
 const Popular = () => {
   return (
     <div className="popular text-center ">
-        <h1 className='font-semibold text-4xl my-5 font-light'>Popular In Women</h1><hr/>
+        <h1 className='font-semibold md:text-4xl text-xl my-5 font-light'>Popular In Women</h1><hr/>
    
     <div className="popular-item flex px-6 gap-4 w-[100vw] md:w-auto overflow-x-auto">
         {data.map((item,i)=>{

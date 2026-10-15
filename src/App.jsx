@@ -23,7 +23,7 @@ import { getAllProducts } from './Slices/allproduct/Allproductthunk.js';
 function App() {
   const [Purchase, setPurchase] = useState({});
   const dispatch = useDispatch();
-  const allProducts = useSelector((state) => state?.allProductlist?.data);
+  const allProducts = useSelector((state) => state?.allProductlist?.allProducts);
   const contextvalue = { all_products: allProducts };
 
   useEffect(() => {

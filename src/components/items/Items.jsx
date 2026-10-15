@@ -8,11 +8,7 @@ const Items = (props) => {
     <div className="item mb-5">
 
       <Link to={`/product/${props.id}`} > <img className=' pehla ' src={props.image} alt='product image' /></Link>
-
-
-
-
-      <p className='text-lg font-semibold text-center '>{props.name}</p>
+      <p className='md:text-lg text-sm font-semibold text-center '>{props.name}</p>
       <div className="item-prices flex items-center justify-center">
         <div className="item-price-new">
           ${props.new_price}

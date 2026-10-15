@@ -5,7 +5,7 @@ import './Navbar.css';
 import { Link, useNavigate } from 'react-router-dom';
 import cartcontext from '../../Context/Cartcontext';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginSuccess, logout } from '../../Slices/auth/AuthSlice';
+import {  logout } from '../../Slices/auth/AuthSlice';
 import { toast } from 'react-toastify';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,10 +13,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const Navbar = () => {
   const [menu, setmenu] = useState('Shop');
   const { Purchase, setPurchase } = useContext(cartcontext);
-  const auth = useSelector((state) => state.auth);
+  const auth = useSelector((state) => state.auth?.user);
   const username = localStorage.getItem('user');
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const isLoginPage = window.location.pathname ==='/signin';
 
   const handlelogout = () => {
     if (username) {
@@ -33,17 +34,17 @@ const Navbar = () => {
   }, [Purchase]);
 
   return (
-    <div className="navbar p-4  flex justify-between ">
+    <div className="navbar md:p-4 p-1  flex justify-between ">
       <div className="logo flex flex-row items-center">
-        <FontAwesomeIcon icon={faBars} className="md:hidden h-9 w-20" />
+        <FontAwesomeIcon icon={faBars} className="md:hidden h-5 w-10" />
 
-        <Link className=' hidden md:block ' to="/">
-         <img src={logo} height={40} width={80} />
+        <Link className=" hidden md:block " to="/">
+          <img src={logo} height={40} width={80} />
         </Link>
       </div>
 
       <ul className="hidden md:flex navul flex gap-10 items-center text-l font-semibold">
-        <li 
+        <li
           onClick={() => {
             setmenu('Shop');
           }}
@@ -85,15 +86,17 @@ const Navbar = () => {
             onClick={() => {
               username ? handlelogout() : '';
             }}
-            className="login bg-black text-white  w-20 h-10 rounded-md"
+            className="login bg-black text-white  md:w-20 md:h-10 py-1 px-2 rounded-md"
           >
-            {username ? 'Logout' : 'Login'}
+            {username ? 'Logout' : isLoginPage ?'x':'Login'}
           </button>
         </Link>
         <Link className="hidden md:block" to="/cart">
           <img src={cart} height={20} width={40} />
         </Link>
-        <div className="cart-count">{Object.keys(Purchase).length}</div>
+        {Object.keys(Purchase).length > 0 && !!auth && (
+          <div className="cart-count">{Object.keys(Purchase).length}</div>
+        )}
       </div>
     </div>
   );

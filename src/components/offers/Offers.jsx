@@ -10,7 +10,7 @@ const Offers = () => {
             </h1>
 
             <h5 className='md:text-lg text-sm font-semibold font-sans '>ONLY ON BEST SELLERS PRODUCTS</h5>
-            <button className='md:text-lg text-sm font-semibold bg-orange-900 w-40 rounded-xl mt-5 hover:scale-110 duration-500  ' >Check Now</button>
+            <button className='md:text-lg text-sm font-semibold bg-orange-900 md:w-40 px-3 rounded-xl mt-5 hover:scale-110 duration-500  ' >Check Now</button>
          </div>
          <div className="right h--full">
             <img src={exclusive} className='md:w-[270px] w-[140px] h-[180px]  md:h-[400px]' />
