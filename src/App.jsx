@@ -5,7 +5,6 @@ import Shop from './pages/Shop.jsx';
 import Cart from './pages/Cart.jsx';
 import Product from './pages/Product.jsx';
 import Shopcategory from './pages/ShopCategory.jsx';
-import Login from './pages/LoginSignup.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import Shopcontext from './Context/Shopcontext.jsx';
 import All_product from './assets/ALLdata.js';
@@ -19,6 +18,7 @@ import { useEffect, useState } from 'react';
 import Checkout from './pages/Checkout/index.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllProducts } from './Slices/allproduct/Allproductthunk.js';
+import SignupPage from './pages/LoginSignup.jsx';
 
 function App() {
   const [Purchase, setPurchase] = useState({});
@@ -39,6 +39,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Shop />} />
               <Route path="/signin" element={<SignIn />} />
+              {/* <Route path="/signup" element={<SignupPage />} /> */}
               <Route path="/Mens" element={<Shopcategory banner={mens_banner} category="Mens" />} />
               <Route
                 path="/Womens"
@@ -48,7 +49,7 @@ function App() {
               <Route path="/product" element={<Product />}></Route>
               <Route path="/product/:productId" element={<Product />} />
               <Route path="/cart/check-out" element={<Checkout />} />
-              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<SignupPage />} />
               <Route
                 path="/cart"
                 element={

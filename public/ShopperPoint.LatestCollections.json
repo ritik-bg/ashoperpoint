@@ -1,0 +1,123 @@
+[{
+  "_id": {
+    "$oid": "6ad08e55dfdc341010afad6f"
+  },
+  "id": 2,
+  "image": "https://res.cloudinary.com/c87hla7x/image/upload/v1792050477/shoes-casual.png",
+  "name": "Casual Sneakers",
+  "category": "Mens",
+  "new_price": 59.99,
+  "old_price": 75
+},
+{
+  "_id": {
+    "$oid": "6ad08e55dfdc341010afad70"
+  },
+  "id": 3,
+  "image": "https://res.cloudinary.com/c87hla7x/image/upload/v1792050471/jeans_man.png",
+  "name": "Denim Jeans",
+  "category": "Mens",
+  "new_price": 49.99,
+  "old_price": 65
+},
+{
+  "_id": {
+    "$oid": "6ad08e55dfdc341010afad71"
+  },
+  "id": 4,
+  "image": "https://res.cloudinary.com/c87hla7x/image/upload/v1792050466/wrist-watch.jpg",
+  "name": "Classic Wrist Watch",
+  "category": "Mens",
+  "new_price": 150,
+  "old_price": 200
+},
+{
+  "_id": {
+    "$oid": "6ad08e55dfdc341010afad72"
+  },
+  "id": 7,
+  "image": "https://res.cloudinary.com/c87hla7x/image/upload/v1792050478/sport.jpg",
+  "name": "Sports T-shirt",
+  "category": "Mens",
+  "new_price": 19.99,
+  "old_price": 30
+},
+{
+  "_id": {
+    "$oid": "6ad08e55dfdc341010afad73"
+  },
+  "id": 9,
+  "image": "https://res.cloudinary.com/c87hla7x/image/upload/v1792050477/slimfit-hoddie.jpg",
+  "name": "Slim Fit Hoodie",
+  "category": "Mens",
+  "new_price": 39.99,
+  "old_price": 55
+},
+{
+  "_id": {
+    "$oid": "6ad08e55dfdc341010afad74"
+  },
+  "id": 8,
+  "image": "https://res.cloudinary.com/c87hla7x/image/upload/v1792050480/sportshoes.png",
+  "name": "Running Shoes",
+  "category": "Mens",
+  "new_price": 69.99,
+  "old_price": 90
+},
+{
+  "_id": {
+    "$oid": "6ad08e55dfdc341010afad75"
+  },
+  "id": 6,
+  "image": "https://res.cloudinary.com/c87hla7x/image/upload/v1792050521/sunglasses-women.jpg",
+  "name": "Trendy Sunglasses",
+  "category": "Womens",
+  "new_price": 29.99,
+  "old_price": 40
+},
+{
+  "_id": {
+    "$oid": "6ad08e55dfdc341010afad76"
+  },
+  "id": 5,
+  "image": "https://res.cloudinary.com/c87hla7x/image/upload/v1792050470/handbag.jpg",
+  "name": "Elegant Handbag",
+  "category": "Womens",
+  "new_price": 79.99,
+  "old_price": 100
+},
+{
+  "_id": {
+    "$oid": "6ad08e55dfdc341010afad77"
+  },
+  "id": 10,
+  "image": "https://res.cloudinary.com/c87hla7x/image/upload/v1792050468/belt.jpg",
+  "name": "Designer Belt",
+  "category": "Mens",
+  "new_price": 25.99,
+  "old_price": 35
+},
+{
+  "_id": {
+    "$oid": "6ad08e55dfdc341010afad78"
+  },
+  "id": 11,
+  "name": "Black Skinny Jeans",
+  "image": "https://res.cloudinary.com/c87hla7x/image/upload/v1792050471/jeans_man.png",
+  "old_price": 1999,
+  "new_price": 1499,
+  "category": "Womens",
+  "description": "Comfortable and trendy black skinny jeans."
+},
+{
+  "_id": {
+    "$oid": "6ad08e55dfdc341010afad79"
+  },
+  "id": 12,
+  "name": "Floral Summer Dress",
+  "image": "https://res.cloudinary.com/c87hla7x/image/upload/v1792050473/maxi.jpg",
+  "old_price": 1599,
+  "new_price": 1299,
+  "category": "Womens",
+  "description": "Light and breezy floral dress for summer outings."
+}]

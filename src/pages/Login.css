@@ -2,13 +2,14 @@
     border: 1px solid #ccc; /* Define the border thickness, style, and color */
     border-radius: 3px;     /* Define the border radius */
     padding: 8px;      
-    width: 26vw ;  
+    /* width: 26vw ;   */
                            /* Optional: Add padding for better spacing */
 }
 
 .signup-btn{
     margin-top: 8px;
-    width: 26vw ; 
+    /* width: 26vw ;  */
+    width: 90%;
    background-color: #ff4141;
    height: 40px;
    border-radius: 3px;
@@ -18,4 +19,9 @@
 .signup-btn:hover{
     transform: scale(1.03);
     transition-duration: 800ms;
+}
+
+
+.signup-box input{
+    width: 100%;
 }
