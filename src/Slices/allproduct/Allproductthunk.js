@@ -24,7 +24,7 @@ export const getAllProducts = () => async (dispatch) => {
 export const getNewCollections = () => async (dispatch) => {
   try {
     const response = await authApi.get(`/latestCollection`);
-    console.log(response,'reposne')
+    // console.log(response,'reposne')
     if (response?.data?.status) {
       dispatch(newCollectionSuccess(response.data.data)); 
       return response.data; 

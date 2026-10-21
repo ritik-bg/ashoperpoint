@@ -13,16 +13,18 @@ const SignIn = () => {
   const handlelogin = async (data) => {
     try {
       const res = await loginUser(data).unwrap();
+// console.log(res,'res');
 
-      if (res?.data?.success) {
-        dispatch(loginSuccess(res.data));
+      if (res?.success) {
+        dispatch(loginSuccess(res?.data));
+        toast.success(res.message  || "Unable to login!");
         navigate("/");
       } else {
-        toast.error(res.data.message || res?.message || "Unable to login!");
+        toast.error(res.message || res?.message || "Unable to login!");
       }
     } catch (error) {
       console.error("Error while logging in:", error);
-      toast.error(error.data.message || "Unexpected error occurred!");
+      toast.error(error.message || "Unexpected error occurred!");
     }
   };
 

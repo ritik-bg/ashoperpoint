@@ -11,7 +11,7 @@ const Latest_collection = () => {
   useEffect(() => {
  const load = async () => {
     const data = await dispatch(getNewCollections());
-    if (data) console.log("loaded", data);
+    // if (data) console.log("loaded", data);
   };
   load();
   }, [])
