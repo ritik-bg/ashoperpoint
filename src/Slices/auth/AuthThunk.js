@@ -1,7 +1,6 @@
 // src/features/auth/authThunks.js
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { loginError, loginSuccess, logout } from './AuthSlice'
-import { Baseurl } from '../../api.config'
+import { loginError, loginSuccess } from './AuthSlice'
 import { toast } from 'react-toastify'
 import { publicApi } from '../../intercepter'
 

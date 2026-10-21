@@ -1,24 +1,28 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { redirect, useNavigate } from 'react-router-dom';
-import { loginUser } from '../../Slices/auth/AuthThunk';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { useLoginMutation } from '../../Store/api/authApi';
+import { loginSuccess } from '../../Slices/auth/AuthSlice';
 
 const SignIn = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [loginUser, { isLoading }] = useLoginMutation();
 
   const handlelogin = async (data) => {
     try {
-      const status = await dispatch(loginUser(data));
-      if (status) {
+      const res = await loginUser(data).unwrap();
+
+      if (res?.data?.success) {
+        dispatch(loginSuccess(res.data));
         navigate("/");
       } else {
-        toast.error("Unable to login!");
+        toast.error(res.data.message || res?.message || "Unable to login!");
       }
     } catch (error) {
       console.error("Error while logging in:", error);
-      toast.error("Unexpected error occurred!");
+      toast.error(error.data.message || "Unexpected error occurred!");
     }
   };
 
