@@ -8,7 +8,6 @@ export const cartApi = baseApi.injectEndpoints({
         addToCart: builder.mutation({
             query: (body) => ({ url: '/log/addtocart', method: 'POST', body })
         })
-
     })
 })
 

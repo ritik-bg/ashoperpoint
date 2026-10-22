@@ -9,9 +9,10 @@ const Breadscrum = ({ product }) => {
 
   return (
     <div className="breadscrum flex gap-1 opacity-85 m-2 ">
-     <Link to= "/" > HOME </Link><img src={arrow_icon} alt="arrow" className='h-3 w-3 mt-2 ' /> 
-      SHOP <img src={arrow_icon} alt="arrow"  className='h-3 w-3 mt-2   ' /> 
-      {product.category} <img src={arrow_icon} alt="arrow"  className='h-3 w-3 mt-2  ' />  {/* Note: lowercase 'category' */}
+      <Link to="/"> HOME </Link>
+      <img src={arrow_icon} alt="arrow" className="h-3 w-3 mt-2 " />
+      SHOP <img src={arrow_icon} alt="arrow" className="h-3 w-3 mt-2   " />
+      {product.category} <img src={arrow_icon} alt="arrow" className="h-3 w-3 mt-2  " />{' '}
       {product.name}
     </div>
   );

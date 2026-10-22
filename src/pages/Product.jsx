@@ -8,7 +8,11 @@ import ProductNotFound from './ProductNotFound';
 const Product = () => {
   const { all_products } = useContext(Shopcontext);
   const { productId } = useParams();
-  const product = all_products?.find((e) => e.id === Number(productId));
+  
+  const product = all_products?.find((item) => item?._id == (productId));
+
+  console.log(product,all_products);
+  
 
   if (!product) {
     return <ProductNotFound />;

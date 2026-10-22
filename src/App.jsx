@@ -13,16 +13,17 @@ import kids_banner from './assets/kids_banner.jpg';
 import SignIn from './components/SignIn/SignIn.jsx';
 import Protected from './components/Protected/Protected.jsx';
 import cartcontext from './Context/Cartcontext.jsx';
-import {  useState } from 'react';
+import { useState } from 'react';
 import Checkout from './pages/Checkout/index.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import SignupPage from './pages/Signup.jsx';
+import OrderSuccess from './components/OrderSuccess.jsx';
+import { useGetAllProductQuery } from './Store/api/homeApi.js';
 
 function App() {
   const [Purchase, setPurchase] = useState({});
-  const dispatch = useDispatch();
-  const allProducts = useSelector((state) => state?.allProductlist?.allProducts);
-  const contextvalue = { all_products: allProducts };
+  const { data: allProducts } = useGetAllProductQuery({});
+  const contextvalue = { all_products: allProducts?.data };
 
   return (
     <>
@@ -34,30 +35,21 @@ function App() {
               <Route path="/" element={<Shop />} />
               <Route path="/signin" element={<SignIn />} />
               <Route path="/Mens" element={<Shopcategory banner={mens_banner} category="Mens" />} />
-              <Route
-                path="/Womens"
-                element={<Shopcategory banner={womens_banner} category="Womens" />}
-              />
+              <Route path="/Womens" element={<Shopcategory banner={womens_banner} category="Womens" />} />
               <Route path="/Kids" element={<Shopcategory banner={kids_banner} category="Kids" />} />
-              <Route path="/product" element={<Product />}>
-              </Route>
+              {/* <Route path="/product" element={<Product />} /> */}
               <Route path="/product/:productId" element={<Product />} />
-              <Route path="/cart/check-out" element={<Checkout />} />
               <Route path="/signup" element={<SignupPage />} />
-              <Route
-                path="/cart"
-                element={
-                  <Protected>
-                    {' '}
-                    <Cart />{' '}
-                  </Protected>
-                }
-              />
+              <Route element={<Protected />}>
+                <Route path="/cart/check-out" element={<Checkout />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/order-success/:orderId" element={<OrderSuccess />} />
+              </Route>
             </Routes>
             <Footer />
           </Shopcontext.Provider>
         </cartcontext.Provider>
-      </Router>{' '}
+      </Router>
     </>
   );
 }

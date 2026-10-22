@@ -8,7 +8,7 @@ const ShopCategory = ({ category, banner }) => {  // Destructure props here
   const categoryProducts = all_products ? 
     all_products.filter((item) => item.category === category) : 
     [];
-console.log(all_products,'categoryProducts');
+console.log(categoryProducts,'categoryProducts');
 
 
   return (
@@ -17,8 +17,8 @@ console.log(all_products,'categoryProducts');
       <div className="shopcategory-product grid grid-cols-3 mt-4 gap-5 px-2">
         {categoryProducts.map((item, i) => (
           <Item 
-            key={i}
-            id={item.id}
+            key={item?._id}
+            id={item._id}
             name={item.name}
             image={item.image}
             old_price={item.old_price}

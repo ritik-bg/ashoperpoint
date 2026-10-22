@@ -1,5 +1,5 @@
 import { toast } from 'react-toastify'
-import { authApi, publicApi } from '../../intercepter'
+import { authApi } from '../../intercepter'
 
 
 

@@ -7,9 +7,12 @@ export const homeApi = baseApi.injectEndpoints({
             query: () => ({ url: '/latestCollection', method: 'GET' })
         }),
         getAllProduct: builder.query({
-            query: () => ({ url: '/log/products/list', method: 'GET' })
+            query: () => ({ url: '/api/products/list', method: 'GET' })
+        }),
+          getPopularProduct: builder.query({
+            query: () => ({ url: '/api/products/popular', method: 'GET' })
         })
     })
 })
 
-export const { useGetLatestCollectionQuery, useGetAllProductQuery } = homeApi
+export const { useGetLatestCollectionQuery, useGetAllProductQuery, useGetPopularProductQuery } = homeApi
