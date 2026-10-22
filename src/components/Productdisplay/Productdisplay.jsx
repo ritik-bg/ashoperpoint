@@ -4,7 +4,7 @@ import Related_Products from '../Related_Products/Related_Products';
 import cartcontext from '../../Context/Cartcontext';
 import { useContext } from 'react';
 import { toast } from 'react-toastify';
-import { useAddToCartMutation } from '../../Store/api/cartAPi';
+import { useAddToCartMutation, useGetCartItemsQuery } from '../../Store/api/cartAPi';
 import { useSelector } from 'react-redux';
 import ProductSkeleton from './ProductPageSimmer';
 
@@ -13,9 +13,10 @@ const SIZES = ['S', 'M', 'L', 'XL', 'XXL'];
 const inr = (n) => `₹${Number(n || 0).toLocaleString('en-IN')}`;
 
 const Productdisplay = (incomingprops) => {
-  const { Purchase, setPurchase } = useContext(cartcontext);
+  // const { Purchase, setPurchase } = useContext(cartcontext);
   const token = useSelector((state) => state.auth.token) || localStorage.getItem('token');
-  const [addToCart, { isLoading }] = useAddToCartMutation();
+  const [addToCart] = useAddToCartMutation();
+   const  { data:Purchase, isLoading , isSuccess} = useGetCartItemsQuery({});
   const isMobile = window.innerWidth < 1024;
   const { product } = incomingprops;
   const images = product.images?.length ? product.images : [product.image];
@@ -27,25 +28,33 @@ const Productdisplay = (incomingprops) => {
   const [size, setSize] = useState('');
   const [sizeError, setSizeError] = useState(false);
 
-  const Additem = (product) => {
-    setPurchase((prevcart) => ({
-      ...prevcart,
-      [product.id]: prevcart[product.id]
-        ? { ...prevcart[product.id], quantity: prevcart[product.id].quantity + 1 }
-        : { ...product, quantity: 1 },
-    }));
-  };
+  // const Additem = (product) => {
+  //   setPurchase((prevcart) => ({
+  //     ...prevcart,
+  //     [product.id]: prevcart[product.id]
+  //       ? { ...prevcart[product.id], quantity: prevcart[product.id].quantity + 1 }
+  //       : { ...product, quantity: 1 },
+  //   }));
+  // };
+
+  console.log(Purchase,'Purchase total');
+  
 
   const handleItem = async (item) => {
     if (token) {
-      Additem(product);
-      const res = await addToCart(product);
+      // Additem(product);
+      // Purchase
+      const payload={
+        productId:product?._id,
+        quantity:1
+      }
+      const res = await addToCart(payload);
       if (res.status) {
         toast.success(res?.message);
       } else {
         toast.error(res?.message || 'Unable to add Item!');
       }
-      // await dispatch(addToCartItem(product));
+     
     } else {
       toast.error('Please Login To Purchase item!');
     }

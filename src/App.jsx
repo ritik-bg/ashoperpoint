@@ -13,7 +13,7 @@ import kids_banner from './assets/kids_banner.jpg';
 import SignIn from './components/SignIn/SignIn.jsx';
 import Protected from './components/Protected/Protected.jsx';
 import cartcontext from './Context/Cartcontext.jsx';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Checkout from './pages/Checkout/index.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import SignupPage from './pages/Signup.jsx';
@@ -24,6 +24,7 @@ function App() {
   const [Purchase, setPurchase] = useState({});
   const { data: allProducts } = useGetAllProductQuery({});
   const contextvalue = { all_products: allProducts?.data };
+  
 
   return (
     <>
@@ -41,9 +42,9 @@ function App() {
               <Route path="/product/:productId" element={<Product />} />
               <Route path="/signup" element={<SignupPage />} />
               <Route element={<Protected />}>
-                <Route path="/cart/check-out" element={<Checkout />} />
-                <Route path="/cart" element={<Cart />} />
-                <Route path="/order-success/:orderId" element={<OrderSuccess />} />
+              <Route path="/cart/check-out" element={<Checkout />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/order-success/:orderId" element={<OrderSuccess />} />
               </Route>
             </Routes>
             <Footer />

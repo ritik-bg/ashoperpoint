@@ -13,7 +13,7 @@ const SignIn = () => {
   const handlelogin = async (data) => {
     try {
       const res = await loginUser(data).unwrap();
-      // console.log(res,'res');
+      console.log(res,'res');
 
       if (res?.success) {
         dispatch(loginSuccess(res?.data));

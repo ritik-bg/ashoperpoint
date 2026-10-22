@@ -6,23 +6,19 @@ import { Loader } from '../Loader';
 const Latest_collection = () => {
   const { isLoading, isFetching, data: collection } = useGetLatestCollectionQuery({});
   // console.log(collection,'new collection');
-  
 
   return (
     <>
-   
-        <div className="latest w-100">
-          
-          <h1 className="font-semibold md:text-4xl text-xl my-5  text-center inline-block w-full ">
-            New Collection
-          </h1>
-          {(isFetching || isLoading ) ? (
-        <Loader />
-      ) :<div className="new-collection grid grid-cols-3 justify-around md:px-8 px-2 ">
+      <div className="latest w-100">
+        <h1 className="font-semibold md:text-4xl text-xl my-5  text-center inline-block w-full ">New Collection</h1>
+        {isFetching || isLoading ? (
+          <Loader />
+        ) : (
+          <div className="new-collection grid grid-cols-3 justify-around md:px-8 px-2 ">
             {!!collection && collection?.data?.length > 0 ? (
               (collection?.data || [])?.map((item, i) => {
-                console.log(item,'single item');
-                
+                // console.log(item,'single item');
+
                 return (
                   <Items
                     key={i}
@@ -37,9 +33,9 @@ const Latest_collection = () => {
             ) : (
               <span>No new Collections Added!</span>
             )}
-          </div>}
-        </div>
-      
+          </div>
+        )}
+      </div>
     </>
   );
 };
