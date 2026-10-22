@@ -49,7 +49,9 @@ const Productdisplay = (incomingprops) => {
         quantity:1
       }
       const res = await addToCart(payload).unwrap();
-      if (res.status) {
+      // console.log(res,'adding to response');
+      
+      if (res.success) {
         toast.success(res?.message || res?.data?.message);
       } else {
         toast.error(res?.message || res?.data?.message|| 'Unable to add Item!');
