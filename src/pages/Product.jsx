@@ -11,7 +11,7 @@ const Product = () => {
   
   const product = all_products?.find((item) => item?._id == (productId));
 
-  console.log(product,all_products);
+  // console.log(product,all_products);
   
 
   if (!product) {

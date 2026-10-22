@@ -37,7 +37,7 @@ const Productdisplay = (incomingprops) => {
   //   }));
   // };
 
-  console.log(Purchase,'Purchase total');
+  // console.log(Purchase,'Purchase total');
   
 
   const handleItem = async (item) => {
@@ -50,9 +50,9 @@ const Productdisplay = (incomingprops) => {
       }
       const res = await addToCart(payload);
       if (res.status) {
-        toast.success(res?.message);
+        toast.success(res?.message || res?.data?.message);
       } else {
-        toast.error(res?.message || 'Unable to add Item!');
+        toast.error(res?.message || res?.data?.message|| 'Unable to add Item!');
       }
      
     } else {

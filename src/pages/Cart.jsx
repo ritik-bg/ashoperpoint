@@ -13,7 +13,7 @@ const cart = () => {
   //   (acc, item) => acc + item?.new_price * item?.quantity,
   //   0,
   // );
-  console.log(Purchase?.cart?.items.length, 'Purchase');
+  // console.log(Purchase?.cart?.items.length, 'Purchase');
 
   return (
     <div className=" text-black w-[100vw] h-[100vh] p-5 relative">
