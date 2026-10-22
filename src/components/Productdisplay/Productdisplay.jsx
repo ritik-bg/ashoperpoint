@@ -48,7 +48,7 @@ const Productdisplay = (incomingprops) => {
         productId:product?._id,
         quantity:1
       }
-      const res = await addToCart(payload);
+      const res = await addToCart(payload).unwrap();
       if (res.status) {
         toast.success(res?.message || res?.data?.message);
       } else {
