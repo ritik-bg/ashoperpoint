@@ -7,6 +7,8 @@ const Popular = () => {
     const { data, isLoading, error } = useGetPopularProductQuery({
         category: 'womens',
     });
+    // console.log(error,'error');
+    
 
     return (
         <div className="popular text-center ">

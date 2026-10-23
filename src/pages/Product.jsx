@@ -19,7 +19,7 @@ const Product = () => {
   }
 
   return (
-    <div>
+    <div className='w-100 mx-auto md:w-[85%]'>
       <Breadscrum product={product} />
       <Productdisplay product={product} />
     </div>

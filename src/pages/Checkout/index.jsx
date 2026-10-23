@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useGetCartItemsQuery } from '../../Store/api/cartAPi';
 import { useCreateOrderMutation, useVerifyPaymentMutation } from '../../Store/api/paymentApi';
 import { loadRazorpay } from '../../Utils/LoadRazorPay';
+import { useForm } from 'react-hook-form';
 
 /* ---------- Charges config (change these in one place) ---------- */
 // Clothing GST slabs (per piece, on selling price):
@@ -86,10 +87,23 @@ const normalizeItems = (data) => {
 };
 
 const Checkout = () => {
-  const { data: purchase, isLoading, isError } = useGetCartItemsQuery({});
+ const { purchase, isLoading, isFetching, isError } = useGetCartItemsQuery(
+  {},
+  {
+    selectFromResult: ({ data, isLoading, isFetching, isError }) => ({
+      purchase: data?.cart,
+      isLoading,
+      isFetching,
+      isError,
+    }),
+  },
+);
+
+  console.log(purchase,'purchase');
+  
 
   const items = useMemo(() => {
-    const fromApi = normalizeItems(purchase);
+    const fromApi = normalizeItems(purchase?.items);
     return fromApi.length ? fromApi : sampleProducts;
   }, [purchase]);
 

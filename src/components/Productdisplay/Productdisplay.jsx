@@ -65,7 +65,7 @@ const Productdisplay = (incomingprops) => {
   return (
     <div className="bg-white">
       {!product ? <ProductSkeleton />
-        : <div className="mx-auto max-w-6xl px-4 py-6 md:py-10 pb-28 md:pb-10">
+        : <div className="mx-auto  px-4 py-6 md:py-10 md:pb-28">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-12">
             {/* ---------- Gallery ---------- */}
             <div className="flex flex-col-reverse md:flex-row gap-3">

@@ -9,15 +9,17 @@ import {  logout } from '../../Slices/auth/AuthSlice';
 import { toast } from 'react-toastify';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useGetCartItemsQuery } from '../../Store/api/cartAPi';
 
 const Navbar = () => {
   const [menu, setmenu] = useState('Shop');
-  const { Purchase, setPurchase } = useContext(cartcontext);
+  // const { Purchase, setPurchase } = useContext(cartcontext);
   const auth = useSelector((state) => state.auth?.user);
   const username = localStorage.getItem('user');
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isLoginPage = window.location.pathname ==='/signin';
+  const { data: Purchase, isLoading, isFetching } = useGetCartItemsQuery({});
 
   const handlelogout = () => {
     if (username) {
@@ -29,12 +31,12 @@ const Navbar = () => {
     }
   };
 
-  useEffect(() => {
-    setPurchase(Purchase);
-  }, [Purchase]);
+  // useEffect(() => {
+  //   setPurchase(Purchase);
+  // }, [Purchase]);
 
   return (
-    <div className="navbar md:p-4 p-1  flex justify-between ">
+    <div className="navbar bg-yellow-300 md:p-4 p-1  flex justify-between ">
       <div className="logo flex flex-row items-center">
         <FontAwesomeIcon icon={faBars} className="md:hidden h-5 w-10" />
 
@@ -91,11 +93,11 @@ const Navbar = () => {
             {username ? 'Logout' : isLoginPage ?'x':'Login'}
           </button>
         </Link>
-        <Link className="hidden md:block" to="/cart">
+       {username && <Link className=" md:block" to="/cart">
           <img src={cart} height={20} width={40} />
-        </Link>
-        {Object.keys(Purchase).length > 0 && !!auth && (
-          <div className="cart-count">{Object.keys(Purchase).length}</div>
+        </Link>}
+        {Purchase?.cart?.items?.length > 0 && !!auth && (
+          <div className="cart-count">{(Purchase?.cart?.items).length}</div>
         )}
       </div>
     </div>

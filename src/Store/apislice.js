@@ -29,6 +29,7 @@
 
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { Baseurl } from "../api.config";
+import { storageManager } from "../Utils/storageManager";
 
 const rawBaseQuery = fetchBaseQuery({
   baseUrl: Baseurl,
@@ -45,6 +46,8 @@ const baseQueryWithTransform = async (args, api, extraOptions) => {
   const result = await rawBaseQuery(args, api, extraOptions);
 
   // 1. HTTP failures (401, 500, network error) -> one consistent error shape
+
+  // if( result.error.status == 401) return storageManager.clearAuth()
   if (result.error) {
     return {
       error: {

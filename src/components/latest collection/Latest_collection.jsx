@@ -14,7 +14,7 @@ const Latest_collection = () => {
         {isFetching || isLoading ? (
           <Loader />
         ) : (
-          <div className="new-collection grid grid-cols-3 justify-around md:px-8 px-2 ">
+          <div className="new-collection grid md:grid-cols-5 grid-cols-3 justify-around md:px-8 px-2 ">
             {!!collection && collection?.data?.length > 0 ? (
               (collection?.data || [])?.map((item, i) => {
                 // console.log(item,'single item');
