@@ -99,7 +99,7 @@ const Checkout = () => {
   },
 );
 
-  console.log(purchase,'purchase');
+  // console.log(purchase,'purchase');
   
 
   const items = useMemo(() => {

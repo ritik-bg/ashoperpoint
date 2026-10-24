@@ -36,7 +36,7 @@ const Navbar = () => {
   // }, [Purchase]);
 
   return (
-    <div className="navbar bg-yellow-300 md:p-4 p-1  flex justify-between ">
+    <div className="navbar md:bg-white bg-yellow-300 md:p-4 p-1  flex justify-between ">
       <div className="logo flex flex-row items-center">
         <FontAwesomeIcon icon={faBars} className="md:hidden h-5 w-10" />
 

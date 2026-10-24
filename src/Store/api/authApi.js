@@ -9,7 +9,7 @@ export const authApi = baseApi.injectEndpoints({
       query: (body) => ({ url: '/register', method: 'POST', body }),
     }),
     getOtp:builder.mutation({
-        query:(body)=>({url:'',method:'POST',body})
+        query:(body)=>({url:'/generateOtp',method:'POST',body})
     })
   }),
 });

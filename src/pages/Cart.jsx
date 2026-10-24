@@ -1,8 +1,8 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useGetCartItemsQuery } from '../Store/api/cartAPi';
+import { useDeleteProductMutation, useGetCartItemsQuery } from '../Store/api/cartAPi';
 import { Loader } from '../components/Loader';
 import { useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 
 const formatPrice = (value) =>
   Number(value || 0).toLocaleString('en-IN', {
@@ -13,18 +13,23 @@ const formatPrice = (value) =>
 const Cart = () => {
   const navigate = useNavigate();
   const { data: Purchase, isLoading, isFetching } = useGetCartItemsQuery({});
+  const [deleteProduct] = useDeleteProductMutation();
   const userdata = useSelector((state) => state.auth.user);
-
   const items = Purchase?.cart?.items ?? [];
   const totalQuantity = items.reduce((acc, item) => acc + (item?.quantity || 0), 0);
-  const total = items.reduce(
-    (acc, item) => acc + (item?.new_price || 0) * (item?.quantity || 0),
-    0,
-  );
+  const total = items.reduce((acc, item) => acc + (item?.new_price || 0) * (item?.quantity || 0), 0);
 
-  const userName = userdata?.name
-    ? userdata.name.charAt(0).toUpperCase() + userdata.name.slice(1).toLowerCase()
-    : '';
+  const userName = userdata?.name ? userdata.name.charAt(0).toUpperCase() + userdata.name.slice(1).toLowerCase() : '';
+
+  async function handleDeleteProduct(id) {
+
+    const res = deleteProduct({ productId: id }).unwrap();
+    if (res.success) {
+      toast.success(product?.data?.message || 'item removed successfully!');
+    } else {
+      console.error('unable to delete product!');
+    }
+  }
 
   return (
     <div className="min-h-screen bg-stone-50 text-stone-900">
@@ -62,25 +67,14 @@ const Cart = () => {
               {items.map((item) => {
                 const lineTotal = (item?.new_price || 0) * (item?.quantity || 0);
                 return (
-                  <li
-                    key={item?.id}
-                    className="flex items-center gap-4 p-4 sm:gap-6 sm:p-5"
-                  >
+                  <li key={item?.id} className="flex items-center gap-4 p-4 sm:gap-6 sm:p-5">
                     <div className="flex h-24 w-24 shrink-0 items-center justify-center rounded-lg bg-stone-100 p-2 sm:h-28 sm:w-28">
-                      <img
-                        src={item?.image}
-                        alt={item?.title}
-                        className="h-full w-full object-contain mix-blend-multiply"
-                      />
+                      <img src={item?.image} alt={item?.title} className="h-full w-full object-contain mix-blend-multiply" />
                     </div>
 
                     <div className="min-w-0 flex-1">
-                      <h3 className="line-clamp-2 text-base font-semibold leading-snug sm:text-lg">
-                        {item?.title}
-                      </h3>
-                      <p className="mt-1 text-sm text-stone-500">
-                        ${formatPrice(item?.new_price)} each
-                      </p>
+                      <h3 className="line-clamp-2 text-base font-semibold leading-snug sm:text-lg">{item?.title}</h3>
+                      <p className="mt-1 text-sm text-stone-500">${formatPrice(item?.new_price)} each</p>
                       <span className="mt-3 inline-flex items-center rounded-full bg-stone-100 px-3 py-1 text-sm font-medium text-stone-700">
                         Qty: {item?.quantity}
                       </span>
@@ -88,6 +82,12 @@ const Cart = () => {
 
                     <div className="text-right">
                       <p className="text-lg font-bold sm:text-xl">${formatPrice(lineTotal)}</p>
+                      <p
+                        onClick={() => handleDeleteProduct(item?._id)}
+                        className="mt-3 inline-flex items-center rounded-full bg-stone-100 px-3 py-1 text-sm font-medium text-stone-700"
+                      >
+                        Remove{' '}
+                      </p>
                     </div>
                   </li>
                 );
@@ -141,15 +141,20 @@ const Cart = () => {
               <path d="M2 3h3l2.6 12.4a1 1 0 0 0 1 .8h9.1a1 1 0 0 0 1-.8L20 8H6" />
             </svg>
             <h2 className="mt-4 text-xl font-semibold">Your cart is empty</h2>
-            <p className="mt-1 text-sm text-stone-500">
-              Add something to your cart and it will show up here.
-            </p>
+            <p className="mt-1 text-sm text-stone-500">Add something to your cart and it will show up here.</p>
             <button
               type="button"
               onClick={() => navigate('/')}
               className="mt-6 rounded-lg bg-stone-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-stone-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2"
             >
               Browse products
+            </button>
+  <button
+              type="button"
+              onClick={() => navigate('/orders')}
+              className="mt-4 rounded-lg bg-stone-900 px-7 py-2.5 text-sm font-semibold text-white transition hover:bg-stone-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2"
+            >
+              View Orders
             </button>
           </div>
         )}

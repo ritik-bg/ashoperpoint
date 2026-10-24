@@ -19,6 +19,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import SignupPage from './pages/Signup.jsx';
 import OrderSuccess from './components/OrderSuccess.jsx';
 import { useGetAllProductQuery } from './Store/api/homeApi.js';
+import ConfirmedOrders from './pages/Orders/ConfirmedOrders.jsx';
 
 function App() {
   const [Purchase, setPurchase] = useState({});
@@ -44,6 +45,7 @@ function App() {
               <Route element={<Protected />}>
               <Route path="/cart/check-out" element={<Checkout />} />
               <Route path="/cart" element={<Cart />} />
+              <Route path="/orders" element={<ConfirmedOrders />} />
               <Route path="/order-success/:orderId" element={<OrderSuccess />} />
               </Route>
             </Routes>
